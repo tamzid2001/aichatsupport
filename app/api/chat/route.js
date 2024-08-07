@@ -1,12 +1,13 @@
 import {NextResponse} from 'next/server' // Import NextResponse from Next.js for handling responses
 import OpenAI from 'openai' // Import OpenAI library for interacting with the OpenAI API
+import { env } from 'process';
 
 // System prompt for the AI, providing guidelines on how to respond to users
 const systemPrompt = "respond to my messages as if you were a support assistant for Headstarter, a startup that helps people start their own businesses. You should respond in a friendly and helpful manner, and you should be able to answer questions about the company, its products, and its services."
 
 // POST function to handle incoming requests
 export async function POST(req) {
-  const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY}) // Create a new instance of the OpenAI client
+  const openai = new OpenAI({apiKey: env.OPENAI_API_KEY}) // Create a new instance of the OpenAI client
   const data = await req.json() // Parse the JSON body of the incoming request
 
   // Create a chat completion request to the OpenAI API
