@@ -2,6 +2,7 @@
 
 import { Box, Button, Stack, TextField } from '@mui/material'
 import { useState } from 'react'
+import { Analytics } from "@vercel/analytics/react"
 
 export default function Home() {
   const [messages, setMessages] = useState([
@@ -23,7 +24,7 @@ export default function Home() {
     ])
   
     try {
-      const response = await fetch('./api/chat', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

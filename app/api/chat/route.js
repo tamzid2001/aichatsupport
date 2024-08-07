@@ -6,7 +6,7 @@ const systemPrompt = "respond to my messages as if you were a support assistant 
 
 // POST function to handle incoming requests
 export async function POST(req) {
-  const openai = new OpenAI() // Create a new instance of the OpenAI client
+  const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY}) // Create a new instance of the OpenAI client
   const data = await req.json() // Parse the JSON body of the incoming request
 
   // Create a chat completion request to the OpenAI API
